@@ -115,7 +115,7 @@ public class TimeEntryControllerTest {
             .when(timeEntryRepository)
             .update(eq(nonExistentTimeEntryId), any(TimeEntry.class));
 
-        ResponseEntity response = controller.update(nonExistentTimeEntryId, new TimeEntry());
+        ResponseEntity response = controller.update(nonExistentTimeEntryId, new TimeEntry(2L, 789L, 321L, LocalDate.parse("2017-01-07"), 4));
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 
